@@ -1,4 +1,5 @@
 
-idf_component_register(SRCS "TFT_eSPI.cpp"
-                    INCLUDE_DIRS "."
-                    PRIV_REQUIRES arduino)
+add_library(LCD TFT_eSPI.cpp)
+target_link_libraries(LCD PRIVATE
+    pico_stdlib,
+    hardware_spi)
